@@ -1,0 +1,155 @@
+/* =======================
+   RESET & GLOBAL STYLES
+======================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f5f7fa;
+  color: #333;
+  padding: 10px;
+}
+
+/* =======================
+   GRID LAYOUT FOR PAGE
+======================= */
+body {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer";
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 100vh;
+}
+
+header {
+  grid-area: header;
+  background: #4a90e2;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+nav {
+  grid-area: nav;
+  background: #333;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+main {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+footer {
+  grid-area: footer;
+  text-align: center;
+  background: #ddd;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* =======================
+   NAVIGATION WITH FLEXBOX
+======================= */
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: #4a90e2;
+}
+
+/* =======================
+   CONTENT & SIDEBAR
+======================= */
+.content, .sidebar {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+}
+
+.sidebar {
+  background: #eef4ff;
+}
+
+/* =======================
+   FLEXBOX CARDS
+======================= */
+.card-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #4a90e2;
+  color: white;
+  flex: 1 1 calc(33.33% - 10px);
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  min-width: 150px;
+}
+
+/* =======================
+   RESPONSIVE DESIGN
+======================= */
+
+/* Tablets */
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    flex: 1 1 calc(50% - 10px);
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  body {
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "footer";
+  }
+
+  .card {
+    flex: 1 1 100%;
+  }
+
+  nav ul {
+    gap: 10px;
+  }
+}
